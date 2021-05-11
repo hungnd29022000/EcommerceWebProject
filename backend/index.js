@@ -4,6 +4,10 @@ let multer = require('multer');
 var Product = require('./routes/product');
 var Wishlist = require('./routes/wishlist');
 var Brand = require('./routes/brand')
+<<<<<<< HEAD
+=======
+var Customer = require('./routes/customer')
+>>>>>>> a8c0359d8cc3d11ef505fe8c5b210aaa693adb7e
 
 var app = express();
 let upload = new multer()
@@ -22,6 +26,10 @@ app.use('/products',Product);
 app.use(upload.array())
 app.use('/wishlist', Wishlist);
 app.use('/brand',Brand)
+<<<<<<< HEAD
+=======
+app.use('/customer',Customer)
+>>>>>>> a8c0359d8cc3d11ef505fe8c5b210aaa693adb7e
 
 const port = process.env.PORT || 4000 // export PORT = 4000
 app.listen(port,()=>{
