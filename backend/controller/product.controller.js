@@ -1,5 +1,6 @@
 const Product = require('../models/product.model');
 const {Op} = require('sequelize');
+const Sequelize = require('sequelize')
 let Brand = require('../models/brand.model')
 
 module.exports.getAll = async function(req,res){
@@ -18,6 +19,17 @@ module.exports.getById = async function(req, res) {
 	}).then(function(products) {
 		res.json(products);
 	});
+}
+module.exports.getAllAttr = async function(req,res){
+	var attr = req.params.attr;
+	attr = 'product'+attr;
+	var data = await Product.findAll({
+		attributes: [
+			[Sequelize.fn('DISTINCT',Sequelize.col(attr)),attr]
+		]
+	})
+	data = data.map(u=>u.get(attr))
+	res.status(200).send(data)
 }
 module.exports.filter = async function(req, res) {
 	var min_price = req.query.minPrice;
@@ -104,7 +116,10 @@ module.exports.postProduct = async function(req,res){
 		productSSD :req.body.productSSD,
 		productDisplay :req.body.productDisplay,
 		productWeight :req.body.productWeight,
-		productCPU : req.body.productCPU
+		productCPU : req.body.productCPU,
+		productSale : req.body.productSale,
+		productSold : req.body.productSold,
+		productDate : req.body.productDate
 	}
 	Product.create(product)
 	.then(data=>{res.status(200).send(data)})
@@ -154,7 +169,10 @@ module.exports.updateProduct = async function(req,res){
 		productSSD :req.body.productSSD,
 		productDisplay :req.body.productDisplay,
 		productWeight :req.body.productWeight,
-		productCPU : req.body.productCPU
+		productCPU : req.body.productCPU,
+		productSale : req.body.productSale,
+		productSold : req.body.productSold,
+		productDate : req.body.productDate
 		},{
 			where:{
 				productID : req.params.id
