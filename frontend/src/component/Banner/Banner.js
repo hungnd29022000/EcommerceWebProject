@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withRouter  } from 'react-router-dom';
 import './Banner.css';
-import '../../../../../WEB/frontend/src/App.css'
-
-// Banner.propTypes = {
-//     collection: PropTypes.object,
-// };
-
-// Banner.defaultProps = {
-//     collection: {}
-// }
+import '../../App.css';
 
 function Banner(props) {
     const [currentBanner, setCurrentBanner] = useState(1);
@@ -45,29 +36,29 @@ function Banner(props) {
                 })}>
                     <div>
                         <div className={currentBanner === 1 ? "banner-title fadeInDown" : "banner-title"}>
-                            New Arrivals
+                            Trending
                         </div>
                     </div>
                     {collection.length > 0 &&
-                        <div className="flex-center">
-                            
-                                <div
-                                    id={collection[7]._id}
-                                    onClick={redirect}
-                                    className={currentBanner === 1 ? "banner-link fadeInLeft" : "banner-link"}
-                                >
-                                    {collection[7].collectionName}
-                            
-                            </div>
-                            
-                                <div
-                                    id={collection[0]._id}
-                                    onClick={redirect}
-                                    className={currentBanner === 1 ? "banner-link fadeInRight" : "banner-link"}>
-                                    {collection[0].collectionName}
-                                </div>
-                            
+                    <div className="flex-center">
+
+                        <div
+                            id={collection[7]._id}
+                            onClick={redirect}
+                            className={currentBanner === 1 ? "banner-link fadeInLeft" : "banner-link"}
+                        >
+                            {collection[7].collectionName}
+
                         </div>
+
+                        <div
+                            id={collection[0]._id}
+                            onClick={redirect}
+                            className={currentBanner === 1 ? "banner-link fadeInRight" : "banner-link"}>
+                            {collection[0].collectionName}
+                        </div>
+
+                    </div>
 
                     }
 
@@ -79,24 +70,24 @@ function Banner(props) {
                 })} >
                     <div style={{ marginLeft: "-500px" }}>
                         {collection.length > 0 &&
-                            <div>
-                                <div className={currentBanner === 2 ? "banner-title fadeInDown" : "banner-title"} >
-                                    {collection[1].collectionName}
-                                </div>
+                        <div>
+                            <div className={currentBanner === 2 ? "banner-title fadeInDown" : "banner-title"} >
+                                {collection[1].collectionName}
                             </div>
+                        </div>
                         }
 
                         {collection.length > 0 &&
-                            <div>
-                                
-                                    <div
-                                        id={collection[1]._id}
-                                        onClick={redirect}
-                                        className={currentBanner === 2 ? "banner-link fadeInUp" : "banner-link"} >
-                                        Shop now
-                                </div>
-                                
+                        <div>
+
+                            <div
+                                id={collection[1]._id}
+                                onClick={redirect}
+                                className={currentBanner === 2 ? "banner-link fadeInUp" : "banner-link"} >
+                                Shop now
                             </div>
+
+                        </div>
                         }
 
                     </div>
@@ -112,23 +103,23 @@ function Banner(props) {
                     hide: currentBanner !== 3
                 })}>
                     {collection.length > 0 &&
-                        <div>
-                            <div className={currentBanner === 3 ? "banner-title fadeInDown" : "banner-title"}>
-                                {collection[3].collectionName}
-                            </div>
+                    <div>
+                        <div className={currentBanner === 3 ? "banner-title fadeInDown" : "banner-title"}>
+                            {collection[3].collectionName}
                         </div>
+                    </div>
                     }
                     {collection.length > 0 &&
-                        <div className="flex-center">
-                            
-                                <div
-                                    id={collection[3]._id}
-                                    onClick={redirect}
-                                    className={currentBanner === 3 ? "banner-link fadeInUp" : "banner-link"}>
-                                    Shop now
-                                </div>
-                            
+                    <div className="flex-center">
+
+                        <div
+                            id={collection[3]._id}
+                            onClick={redirect}
+                            className={currentBanner === 3 ? "banner-link fadeInUp" : "banner-link"}>
+                            Shop now
                         </div>
+
+                    </div>
                     }
                     {/* <div className={currentBanner === 3 ? "banner-title fadeInDown" : "banner-title"}>
                         New Arrivals
