@@ -5,6 +5,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Contact from "../components/Contact/Contact";
 import Newsletter from "../components/NewLetter/NewsLetter";
+import RecommendBanner from "../components/RecommendBanner/RecommendBanner";
 
 export default function ContactPage() {
     const [collection, setCollection] = useState([]);
@@ -16,11 +17,7 @@ export default function ContactPage() {
         <div className="Contact">
             <Header/>
             <Banner collection={collection}/>
-            {/*<RecommendBanner/>*/}
-            {/*<HomeTab/>*/}
-            {/*<Collection*/}
-            {/*    collection={collection}*/}
-            {/*/>*/}
+            <RecommendBanner/>
             <Contact />
             <Newsletter/>
             <Footer/>
