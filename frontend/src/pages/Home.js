@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
-import Header from "../component/Header/Header";
-import Banner from "../component/Banner/Banner";
-import Newsletter from "../component/NewLetter/NewsLetter";
-import Footer from "../component/Footer/Footer";
+import Header from "../components/Header/Header";
+import Banner from "../components/Banner/Banner";
+import Newsletter from "../components/NewLetter/NewsLetter";
+import Footer from "../components/Footer/Footer";
+import HomeTab from "../components/HomeTab/HomeTab";
 
 export default function Home() {
     const [collection, setCollection] = useState([]);
@@ -14,6 +15,7 @@ export default function Home() {
         <div className="Home">
             <Header/>
             <Banner collection={collection}/>
+            <HomeTab/>
             <Newsletter/>
             <Footer/>
         </div>
