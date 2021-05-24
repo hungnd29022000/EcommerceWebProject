@@ -10,7 +10,7 @@ export function CartProvider(props) {
 
     const  isExists = (cartItems = [], item = {}) => {
         for (let cartItem of cartItems ) { // loop qua value, neu for in thi loop key
-            if (cartItem._id === item._id) {
+            if (cartItem.productID === item.productID) {
                 return cartItem;
             }
         }
@@ -47,15 +47,11 @@ export function CartProvider(props) {
             if (cartItems.length === 0) {
                 virtualCart.push({...product, count: count})
             } else {
-                if (!isExists(cartItems, product)) {
-                    virtualCart.push({...product, count: count})
+                const productNew = isExists(cartItems, product)
+                if (!productNew) {
+                    virtualCart.push({...product, count: 1})
                 } else {
-                    for (let i of virtualCart) {
-                        if (i._id === product._id) {
-                            i.count += count
-                            break
-                        }
-                    }
+                    productNew.count += count
                 }
             }
             localStorage.setItem('cart', JSON.stringify(virtualCart))
@@ -67,15 +63,11 @@ export function CartProvider(props) {
             if (cartItems.length === 0) {
                 virtualCart.push({...product, count: 1})
             } else {
-                if (!isExists(cartItems, product)) {
+                const productNew = isExists(cartItems, product)
+                if (!productNew) {
                     virtualCart.push({...product, count: 1})
                 } else {
-                    for (let i = 0; i < virtualCart.length; i++) {
-                        if (virtualCart[i]._id === product._id) {
-                            virtualCart[i].count += 1
-                            break
-                        }
-                    }
+                    productNew.count += 1
                 }
             }
             localStorage.setItem('cart', JSON.stringify(virtualCart))
@@ -85,10 +77,13 @@ export function CartProvider(props) {
     }
 
     const removeFromCart = (event) => {
-        const id = event.target.id
+        const id =parseInt(event.target.id)
+
+        // console.log("remove"+id)
         const virtualCart = [...cartItems]
         for (let i = 0; i < virtualCart.length; i++) {
-            if (virtualCart[i]._id === id) {
+            if (virtualCart[i].productID === id) {
+                console.log("an")
                 virtualCart.splice(i, 1)
                 break
             }
@@ -102,7 +97,7 @@ export function CartProvider(props) {
         const id = event.target.id
         const virtualCart = [...cartItems]
         for (let i = 0; i < virtualCart.length; i++) {
-            if (virtualCart[i]._id === id) {
+            if (virtualCart[i].productID === id) {
                 virtualCart.splice(i, 1)
                 break
             }
@@ -115,7 +110,7 @@ export function CartProvider(props) {
         const id = event.target.id
         const virtualCart = [...cartItems]
         for (let i = 0; i < virtualCart.length; i++) {
-            if (virtualCart[i]._id === id) {
+            if (virtualCart[i].productID === Number(id)) {
                 if (virtualCart[i].count > 1) {
                     virtualCart[i].count = virtualCart[i].count - 1
                 }
@@ -130,7 +125,7 @@ export function CartProvider(props) {
         const id = event.target.id
         const virtualCart = [...cartItems]
         for (let i = 0; i < virtualCart.length; i++) {
-            if (virtualCart[i]._id === id) {
+            if (virtualCart[i].productID === Number(id)) {
                 virtualCart[i].count += 1
             }
         }
@@ -140,11 +135,11 @@ export function CartProvider(props) {
     }
 
     const updateCount = (event) => {
-        const id = event.targe.id
+        const id = event.target.id
         const value = event.target.value
         const virtualCart = [...cartItems]
         for (let i = 0; i < virtualCart.length; i++) {
-            if (virtualCart[i]._id === id) {
+            if (virtualCart[i].productID === id) {
                 virtualCart[i].count = Number(value)
             }
         }
@@ -156,8 +151,7 @@ export function CartProvider(props) {
     const getTotal = (arr) => {
         let virtualTotal = 0
         for (let i in arr) {
-            virtualTotal += arr[i].count * arr[i].productFinalPrice
-        }
+            virtualTotal += Number(arr[i].count) * Number(arr[i].productPrice)        }
         localStorage.setItem('total', JSON.stringify(virtualTotal))
         setTotal(virtualTotal)
     }
