@@ -14,7 +14,6 @@ const ProductBody = (props) => {
     let price = ''
     let length = 0
     let img_list = []
-    // console.log("product:" + props.product)
     if (props.product.length != 0) {
         product = props.product;
         img_list = props.product.productImg.split(',')
