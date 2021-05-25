@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "../App.css"
-import Newsletter from "../components/NewsLetter/NewsLetter";
+import Newsletter from "../components/NewLetter/NewsLetter";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
