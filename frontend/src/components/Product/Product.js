@@ -37,7 +37,7 @@ function Product(props) {
                         (today - productDate)/(1000*3600*24) < 10 && <div className="product-tag-item new">NEW</div>}
                 </div>
                 <div className="product-img-bg" onClick={redirect}>
-                    <img src={product.productImg}>
+                    <img src={product.productImg.split(",")[0]}>
                     </img>
                 </div>
                 <ProductOverlay
