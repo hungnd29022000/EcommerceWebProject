@@ -21,6 +21,10 @@
   height: calc(25vw - 100px);
   position: relative;
 }
+
+.product-img:hover {
+  cursor: pointer;
+}
 .product-tag {
   position: absolute;
   z-index: 2;
