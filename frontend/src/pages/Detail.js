@@ -34,7 +34,7 @@ function Detail(props) {
 
     return (
         <div className="ProductDetail">
-            <Header/>
+            <Header check = {check}/>
             <Banner/>
             <ProductBody product={product}/>
             <ProductRecommend product={product} check={check}/>

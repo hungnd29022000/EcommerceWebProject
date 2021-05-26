@@ -9,7 +9,7 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 import Search from "./Search";
 import Cart from './Cart'
 
-function Header(){
+function Header(props){
 
     const [searchOpen, setSearchOpen] = useState(false)
     const [cartOpen, setCartOpen] = useState(false)
@@ -22,7 +22,11 @@ function Header(){
         setCartOpen(false)
         setSearchOpen(false)
         setWishlistOpen(false)
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'unset';
+    }
+    const redirect = (event) => {
+        window.scrollTo(0,0);
+        props.history.push(`/${event.target.id}`)
     }
 
     if (searchOpen || cartOpen || accountOpen || wishlistOpen) {
