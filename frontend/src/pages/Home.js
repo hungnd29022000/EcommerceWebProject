@@ -4,9 +4,9 @@ import Banner from "../components/Banner/Banner";
 import Newsletter from "../components/NewLetter/NewsLetter";
 import Footer from "../components/Footer/Footer";
 import HomeTab from "../components/HomeTab/HomeTab";
+import RecommendBanner from "../components/RecommendBanner/RecommendBanner";
 
 export default function Home() {
-    const [collection, setCollection] = useState([]);
     useEffect(() => {
         document.body.style.overflow = 'unset'; // chua biet de lam gi
     }, [])
@@ -14,7 +14,8 @@ export default function Home() {
     return (
         <div className="Home">
             <Header/>
-            <Banner collection={collection}/>
+            <Banner/>
+            <RecommendBanner/>
             <HomeTab/>
             <Newsletter/>
             <Footer/>

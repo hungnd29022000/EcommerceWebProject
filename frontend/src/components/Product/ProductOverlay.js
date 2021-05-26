@@ -11,6 +11,7 @@ function ProductOverlay(props) {
 
     const {addToCart, addToWishList} = useContext(CartContext)
 
+
     const cartClick = () => {
         setLoading(1)
         setTimeout(() => {

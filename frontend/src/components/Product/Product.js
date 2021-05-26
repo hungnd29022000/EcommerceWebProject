@@ -8,6 +8,7 @@ function Product(props) {
     const [hover, setHover] = useState(false)   //để css
     const [view, setView] = useState(false) //
     const product = props.product
+    let id = product.productID
 
     const openView = () => {
         setView(true)
@@ -18,15 +19,11 @@ function Product(props) {
 
     const redirect = () => {    // sự kiện chuột, chuyển hướng trang đến /products/:id
         window.scrollTo(0,0)
-        props.history.push(`/product/${product.productID}`);
-        if (props.check) {
-            props.check()
-        }
+        props.history.push(`/product/${id}`);
     }
 
     let productDate = new Date(product.productDate)
     let today = new Date()
-    let sale = ((1-product.productSale/product.productPrice)*100).toFixed(2);
 
     return (
         <div className="Product">

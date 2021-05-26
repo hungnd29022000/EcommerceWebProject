@@ -32,14 +32,8 @@ function Search(props) {
     }
     const handleClick = (e) => {
         const id = e.target.id
-        console.log(props)
-        // if (props.history.location.pathname.slice(0, 8) === '/product'){
-        //     props.history.push(`${id}`)
-        //     props.clickToClose()
-        // }
-        // else props.history.push(`product/${id}`)
-        props.history.push(`/product/${id}`)
-        // props.clickToClose()
+        // props.history.push(`product/${id}`)
+        window.location = 'http://localhost:3000/product/'+ id;
     }
 
     return (
@@ -70,9 +64,9 @@ function Search(props) {
 
                     {
                         (products.length > 0 && searchInput !== "") &&
-                        products.map((item, index) => {
+                        products.map((item,index) => {
                             return (
-                                <div className="search-item" key={index}  id={item.productID}  onClick={handleClick}>
+                                <div className="search-item" key={index} >
                                     <div className="search-item-img">
                                         <img src={item.productImg} height="100%" alt=""/>
                                     </div>
@@ -80,8 +74,17 @@ function Search(props) {
                                         <div className="search-item-name">
                                             <p>{item.productName}</p>
                                         </div>
-
                                     </div>
+                                    <div className="item-view">
+                                        <div className="button"
+                                             key={item.productID}
+                                             id={item.productID}
+                                             onClick={handleClick}
+                                        >
+                                            VIEW
+                                        </div>
+                                    </div>
+
                                 </div>
                             )
                         })

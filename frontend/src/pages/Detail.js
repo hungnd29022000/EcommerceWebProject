@@ -20,7 +20,7 @@ function Detail(props) {
         const id_ = !id
         setId(id_)
     }
-    
+
     // lay dư lieu
     useEffect(() => {
         fetch('http://localhost:4000/products')
@@ -28,16 +28,13 @@ function Detail(props) {
              .then(data => {
                 //  console.log(data)
                  setProduct(data[parseInt(parseInt(props.match.params.id) - 1)])
-                 console.log(product)
              })
     },[id])
 
-    // console.log(product)
-    
-    
+
     return (
         <div className="ProductDetail">
-            <Header check={check}/>
+            <Header/>
             <Banner/>
             <ProductBody product={product}/>
             <ProductRecommend product={product} check={check}/>

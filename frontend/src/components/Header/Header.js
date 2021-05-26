@@ -9,24 +9,20 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 import Search from "./Search";
 import Cart from './Cart'
 
-function Header(props){
+function Header(){
 
     const [searchOpen, setSearchOpen] = useState(false)
     const [cartOpen, setCartOpen] = useState(false)
     const [accountOpen, setAccountOpen] = useState(false)
     const [wishlistOpen, setWishlistOpen] = useState(false)
 
-    const redirect = (event) => {
-        window.scrollTo(0,0);
-        props.history.push(`/${event.target.id}`)
-    }
 
     const clickToClose = () => {
         setSearchOpen(false)
         setCartOpen(false)
         setSearchOpen(false)
         setWishlistOpen(false)
-        document.body.style.overflow = 'unset';
+        document.body.style.overflow = 'hidden';
     }
 
     if (searchOpen || cartOpen || accountOpen || wishlistOpen) {
