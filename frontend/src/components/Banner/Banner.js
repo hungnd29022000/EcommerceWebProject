@@ -21,7 +21,7 @@ function Banner() {
     }
 
     return (
-        <div className="Banner flex-center div100vh">
+        <div className="Banner flex-center">
             <div className="banner-container">
                 {/* dooi sang currentBanner khac là ẩn cái cũ */}
                 {currentBanner === 1 &&

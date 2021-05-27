@@ -5,6 +5,7 @@ import b1 from '../../assets/b1.jpg';
 import b2 from '../../assets/b2.jpg';
 import b3 from '../../assets/b3.jpg';
 import b4 from '../../assets/b4.jpg';
+import { withRouter } from 'react-router';
 
 
 
@@ -23,12 +24,12 @@ function RecommendBanner() {
                         <div className="blackbox-title">Macbook</div>
                         <div className="blackbox-center">
                             {/* thẻ link đẻ chuyển */}
-                            <div
+                            <a
                                 className="blackbox-link a"
-                                to="/shop"
+                                href="/product"
                                 onClick={handleClick}
                             >Shop now
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -41,10 +42,12 @@ function RecommendBanner() {
                             <div className="blackbox-center-container">
                                 <div className="blackbox-title blackbox-title-small">Apple</div>
                                 <div className="blackbox-center">
-                                    <div
-                                        className="blackbox-link blackbox-link-smaill a"
-                                        to="/women"
-                                        onClick={handleClick}>Shop now</div>
+                                    <a
+                                        className="blackbox-link a"
+                                        href="/product"
+                                        onClick={handleClick}
+                                    >Shop now
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -54,10 +57,12 @@ function RecommendBanner() {
                             <div className="blackbox-center-container">
                                 <div className="blackbox-title blackbox-title-small">Dell</div>
                                 <div className="blackbox-center">
-                                    <div
-                                        className="blackbox-link blackbox-link-small a"
-                                        to="/men"
-                                        onClick={handleClick}>Shop now</div>
+                                    <a
+                                        className="blackbox-link a"
+                                        href="/product"
+                                        onClick={handleClick}
+                                    >Shop now
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -69,9 +74,12 @@ function RecommendBanner() {
                         <div className="blackbox-center-container">
                             <div className="blackbox-title blackbox-title-medium">Dell</div>
                             <div className="blackbox-center">
-                                <div className= "blackbox-link blackbox-link-medium a"
-                                    to="/shop"
-                                    onClick={handleClick}>Shop now</div>
+                                    <a
+                                        className="blackbox-link a"
+                                        href="/product"
+                                        onClick={handleClick}
+                                    >Shop now
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -83,4 +91,4 @@ function RecommendBanner() {
     );
 }
 
-export default RecommendBanner;
+export default withRouter(RecommendBanner);

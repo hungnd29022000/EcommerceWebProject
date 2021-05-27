@@ -10,21 +10,21 @@
 
 .banner-first {
     overflow: hidden;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    transition: 1s;
+    /* transition: 1s; */
     background-image: url("../../assets/S1.jpg");
-    position: absolute;
+    /* position: absolute; */
     background-size: cover;
     height: 100%;
     width: 100%;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
-.hide {
+/* .hide {
     visibility: hidden;
     opacity: 0;
-}
+} */
 
 .banner-title {
     color: #666;
@@ -44,7 +44,7 @@
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-150px);
+        transform: translateY(-220px);
     }
     to {
         opacity: 1;
@@ -113,11 +113,11 @@
     cursor: pointer;
     margin: 0 15px;
 }
-
+/* 
 .banner-link::after {
     content: "";
     display: block;
     height: 2px;
     background: #000;
     overflow: hidden;
-}
+} */
